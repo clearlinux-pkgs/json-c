@@ -1,5 +1,6 @@
 libjson-c.so.5:JSONC_0.14
 libjson-c.so.5:JSONC_0.15
+libjson-c.so.5:JSONC_0.16
 libjson-c.so.5:JSONC_PRIVATE
 libjson-c.so.5:array_list_add
 libjson-c.so.5:array_list_bsearch
