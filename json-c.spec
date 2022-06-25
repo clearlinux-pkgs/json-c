@@ -4,7 +4,7 @@
 #
 Name     : json-c
 Version  : 0.16
-Release  : 19
+Release  : 20
 URL      : https://s3.amazonaws.com/json-c_releases/releases/json-c-0.16.tar.gz
 Source0  : https://s3.amazonaws.com/json-c_releases/releases/json-c-0.16.tar.gz
 Summary  : A JSON implementation in C
@@ -82,7 +82,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656044755
+export SOURCE_DATE_EPOCH=1656127232
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -134,7 +134,7 @@ unset PKG_CONFIG_PATH
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1656044755
+export SOURCE_DATE_EPOCH=1656127232
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/json-c
 cp %{_builddir}/json-c-0.16/COPYING %{buildroot}/usr/share/package-licenses/json-c/0cd23537e3c32497c7b87157b36f9d2eb5fca64b
