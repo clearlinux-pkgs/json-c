@@ -4,7 +4,7 @@
 #
 Name     : json-c
 Version  : 0.16
-Release  : 23
+Release  : 24
 URL      : https://s3.amazonaws.com/json-c_releases/releases/json-c-0.16.tar.gz
 Source0  : https://s3.amazonaws.com/json-c_releases/releases/json-c-0.16.tar.gz
 Summary  : A JSON implementation in C
@@ -73,6 +73,15 @@ Group: Default
 license components for the json-c package.
 
 
+%package staticdev
+Summary: staticdev components for the json-c package.
+Group: Default
+Requires: json-c-dev = %{version}-%{release}
+
+%description staticdev
+staticdev components for the json-c package.
+
+
 %prep
 %setup -q -n json-c-0.16
 cd %{_builddir}/json-c-0.16
@@ -82,7 +91,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656127232
+export SOURCE_DATE_EPOCH=1662581378
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -102,10 +111,10 @@ export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used -march=x86-64-v3 -msse2avx -mtune=skylake "
-export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used -march=x86-64-v3 -msse2avx -mtune=skylake "
-export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used -march=x86-64-v3 -msse2avx -mtune=skylake "
-export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used -march=x86-64-v3 -msse2avx -mtune=skylake "
+export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used -march=x86-64-v3 -mtune=skylake "
+export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used -march=x86-64-v3 -mtune=skylake "
+export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used -march=x86-64-v3 -mtune=skylake "
+export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used -march=x86-64-v3 -mtune=skylake "
 export CFLAGS="$CFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
 export CXXFLAGS="$CXXFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
 export FFLAGS="$FFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
@@ -134,10 +143,10 @@ unset PKG_CONFIG_PATH
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1656127232
+export SOURCE_DATE_EPOCH=1662581378
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/json-c
-cp %{_builddir}/json-c-0.16/COPYING %{buildroot}/usr/share/package-licenses/json-c/0cd23537e3c32497c7b87157b36f9d2eb5fca64b
+cp %{_builddir}/json-c-%{version}/COPYING %{buildroot}/usr/share/package-licenses/json-c/0cd23537e3c32497c7b87157b36f9d2eb5fca64b
 pushd clr-build32
 %make_install32
 if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
@@ -184,6 +193,7 @@ popd
 /usr/lib64/cmake/json-c/json-c-config.cmake
 /usr/lib64/cmake/json-c/json-c-targets-relwithdebinfo.cmake
 /usr/lib64/cmake/json-c/json-c-targets.cmake
+/usr/lib64/glibc-hwcaps/x86-64-v3/libjson-c.so
 /usr/lib64/libjson-c.so
 /usr/lib64/pkgconfig/json-c.pc
 
@@ -198,7 +208,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/glibc-hwcaps/x86-64-v3/libjson-c.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libjson-c.so.5
 /usr/lib64/glibc-hwcaps/x86-64-v3/libjson-c.so.5.2.0
 /usr/lib64/libjson-c.so.5
@@ -212,3 +221,7 @@ popd
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/json-c/0cd23537e3c32497c7b87157b36f9d2eb5fca64b
+
+%files staticdev
+%defattr(-,root,root,-)
+/usr/lib64/glibc-hwcaps/x86-64-v3/libjson-c.a
