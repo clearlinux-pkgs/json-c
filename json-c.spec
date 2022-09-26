@@ -4,7 +4,7 @@
 #
 Name     : json-c
 Version  : 0.16
-Release  : 24
+Release  : 25
 URL      : https://s3.amazonaws.com/json-c_releases/releases/json-c-0.16.tar.gz
 Source0  : https://s3.amazonaws.com/json-c_releases/releases/json-c-0.16.tar.gz
 Summary  : A JSON implementation in C
