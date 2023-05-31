@@ -5,7 +5,7 @@
 #
 Name     : json-c
 Version  : 0.16
-Release  : 30
+Release  : 31
 URL      : https://s3.amazonaws.com/json-c_releases/releases/json-c-0.16.tar.gz
 Source0  : https://s3.amazonaws.com/json-c_releases/releases/json-c-0.16.tar.gz
 Summary  : A JSON implementation in C
@@ -86,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683267336
+export SOURCE_DATE_EPOCH=1685558775
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -141,7 +141,7 @@ unset PKG_CONFIG_PATH
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1683267336
+export SOURCE_DATE_EPOCH=1685558775
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/json-c
 cp %{_builddir}/json-c-%{version}/COPYING %{buildroot}/usr/share/package-licenses/json-c/0cd23537e3c32497c7b87157b36f9d2eb5fca64b || :
@@ -173,7 +173,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libjson-c.so
 /usr/include/json-c/arraylist.h
 /usr/include/json-c/debug.h
 /usr/include/json-c/json.h
@@ -206,7 +205,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libjson-c.so.5
 /V3/usr/lib64/libjson-c.so.5.2.0
 /usr/lib64/libjson-c.so.5
 /usr/lib64/libjson-c.so.5.2.0
