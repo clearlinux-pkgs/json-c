@@ -4,10 +4,10 @@
 # Using build pattern: cmake
 #
 Name     : json-c
-Version  : 0.16
-Release  : 31
-URL      : https://s3.amazonaws.com/json-c_releases/releases/json-c-0.16.tar.gz
-Source0  : https://s3.amazonaws.com/json-c_releases/releases/json-c-0.16.tar.gz
+Version  : 0.17
+Release  : 32
+URL      : https://s3.amazonaws.com/json-c_releases/releases/json-c-0.17.tar.gz
+Source0  : https://s3.amazonaws.com/json-c_releases/releases/json-c-0.17.tar.gz
 Summary  : A JSON implementation in C
 Group    : Development/Tools
 License  : MIT
@@ -78,15 +78,15 @@ license components for the json-c package.
 
 
 %prep
-%setup -q -n json-c-0.16
-cd %{_builddir}/json-c-0.16
+%setup -q -n json-c-0.17
+cd %{_builddir}/json-c-0.17
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685558775
+export SOURCE_DATE_EPOCH=1692024831
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -141,7 +141,7 @@ unset PKG_CONFIG_PATH
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1685558775
+export SOURCE_DATE_EPOCH=1692024831
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/json-c
 cp %{_builddir}/json-c-%{version}/COPYING %{buildroot}/usr/share/package-licenses/json-c/0cd23537e3c32497c7b87157b36f9d2eb5fca64b || :
@@ -181,6 +181,7 @@ popd
 /usr/include/json-c/json_inttypes.h
 /usr/include/json-c/json_object.h
 /usr/include/json-c/json_object_iterator.h
+/usr/include/json-c/json_patch.h
 /usr/include/json-c/json_pointer.h
 /usr/include/json-c/json_tokener.h
 /usr/include/json-c/json_types.h
@@ -205,14 +206,14 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libjson-c.so.5.2.0
+/V3/usr/lib64/libjson-c.so.5.3.0
 /usr/lib64/libjson-c.so.5
-/usr/lib64/libjson-c.so.5.2.0
+/usr/lib64/libjson-c.so.5.3.0
 
 %files lib32
 %defattr(-,root,root,-)
 /usr/lib32/libjson-c.so.5
-/usr/lib32/libjson-c.so.5.2.0
+/usr/lib32/libjson-c.so.5.3.0
 
 %files license
 %defattr(0644,root,root,0755)
